@@ -1,0 +1,41 @@
+/// ==|====================
+/// Base / Base
+/// =======================
+
+html {
+  // sass-lint:disable-block no-vendor-prefixes
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  box-sizing: border-box;
+  font-size: $text__size--base;
+  height: 100%;
+  line-height: $text__line-height--base;
+}
+
+
+* {
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+
+  &:hover {
+    transition: $base__transition;
+  }
+}
+
+body {
+  // sass-lint:disable-block no-vendor-prefixes
+  -webkit-font-smoothing: antialiased;
+  background-color: $color__body;
+  color: $text__color--base;
+  font-family: $text__family--sans;
+  font-size: $text__size--base;
+  line-height: $text__line-height--base;
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}

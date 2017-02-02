@@ -1,0 +1,17 @@
+//- Template Page
+
+extends ../partials/_base.pug
+
+prepend head
+	//- dynamic body class as a variable.
+	- var bodyClass = 'page-body-class'
+
+block title
+	title Page Title
+
+
+block content
+
+	article
+
+		//- This is where you start with content

@@ -1,0 +1,27 @@
+//- main navigation
+
+
+//- Varibal Paths for the dev environment
+if rootfile
+	- var page = './src/html/';
+	- var base = './';
+else
+	- var page = '';
+	- var base = '../../';
+
+
+nav(role='navigation')
+	h2.no_show Navigation
+
+	#js-mobile-menu-button.nav-menu-button
+
+	ul#js-nav-menu.nav-menu.js_hide
+		li.nav-item: a(href=base + 'index.html') Home
+		li.nav-item
+			a.is_parent(href=page + 'resources.html') Resources
+
+			ul.sub-nav
+				li.nav-item: a(href=page + 'faq.html') FAQ
+				li.nav-item: a(href=page + 'forms.html') Forms
+
+		li.nav-item.show-test: a(href=page + 'contact-us.html') Contact Us

@@ -1,0 +1,91 @@
+/// ==|====================
+/// Abstracts/Variables
+/// =======================
+
+/// Colors |===============
+
+$color__red:                    #c8483d !default;
+$color__blue:                   #90cccb !default;
+$color__green:                  #5cb85c !default;
+$color__yellow:                 #f0b764 !default;
+
+$color__gray--base:             #000 !default;
+$color__gray--darker:           lighten($color__gray--base, 13.5%) !default; // #222
+$color__gray--dark:             lighten($color__gray--base, 20%) !default;   // #333
+$color__gray--normal:           lighten($color__gray--base, 33.5%) !default; // #555
+$color__gray--light:            lighten($color__gray--base, 46.7%) !default; // #777
+$color__gray--lighter:          lighten($color__gray--base, 93.5%) !default; // #eee
+
+$color__primary:                #bada55 !default;
+$color__secondary:              #b00b1e !default;
+$color__third:                  #c0ffee !default;
+$color__fourth:                 #1a1a1a !default;
+$color__fifth:                  #1ce !default;
+
+$color__success:                $color__green !default;
+$color__notice:                 $color__blue !default;
+$color__warning:                $color__yellow !default;
+$color__error:                  $color__red !default;
+
+$color__white:                  #fff !default;
+$color__black:                  #000 !default;
+
+$overlay__black--lighter:       rgba(0, 0 , 0, .3) !default;
+$overlay__black:                rgba(0, 0 , 0, .5) !default;
+$overlay__black--darker:        rgba(0, 0 , 0, .8) !default;
+
+$color__body:                   $color__white !default;
+
+/// Text |===============
+
+$text__color--base:             $color__black !default;
+
+$text__family--sans:            Helvetica, Arial, sans-serif !default;
+$text__family--serif:           Georgia, 'Times New Roman', Times, serif !default;
+$text__family--monospace:       'Menlo', 'Consolas', 'Courier New', monospace !default;
+
+$text__size--base:              16px !default;
+$text__line-height--base:       1.3 !default;
+$text__weight--base:            normal !default;
+
+/// Link |===============
+
+$link__color:                   $color__primary;
+
+$base__transition:              all .3s ease-in;
+
+/// Headings |===========
+
+$headings__family:              $text__family--sans;
+$headins__weight:               normal !default;
+$headings__color:               $color__black;
+
+$headings__size--h1:            42px !default;
+$headings__size--h2:            34px !default;
+$headings__size--h3:            28px !default;
+$headings__size--h4:            22px !default;
+$headings__size--h5:            20px !default;
+$headings__size--h6:            16px !default;
+
+/// Responsive |=========
+
+$breakpoints: (
+  default: '',
+  small: 568px,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1200px
+);
+
+/// Z-Index |===========
+
+$zindex: (
+  overlay:                    9000,
+  dropdown:                   8000,
+  nav:                        7000,
+  header:                     6000,
+  footer:                     5000,
+  pseduo:                     4000,
+  default:                    1,
+  bottomless-pit:             -10000
+);

@@ -1,0 +1,43 @@
+//- Accessible - "Skip Navigation"
+//-
+//- for screen reader/keyboard user accesibility
+
+//- Ref: http://webaim.org/techniques/skipnav/#maincontent
+//- Ref: http://webaim.org/techniques/css/invisiblecontent/
+
+
+#skipnav
+	a(href="#maincontent") Skip to Content
+
+
+
+
+
+
+//- ----------------------------------------------------------------------------
+//- Sass (requires Luscious and for main content to have the #maincontent id)
+//- Doesn't rely on JS
+
+//- CSS:
+//- #skipnav a
+//- 	position: absolute
+//- 	top: 0
+//- 	+h(padding, vr-rem(1))
+//- 	line-height: vr(2)
+//- 	font-size: 2rem
+//- 	color: #fff
+//- 	text-decoration: underline
+//- 	left: -101%
+//- 	width: 1px
+//- 	height: 1px
+//- 	overflow: hidden
+//- 	background-color: transparent
+//- 	transition: left 1s ease-out, background 1s linear
+//-
+//- #skipnav a:focus
+//- 	left: 0
+//- 	width: auto
+//- 	height: auto
+//- 	overflow: auto
+//- 	background-color: darken($c_primary, 5%)
+//- 	transition: left .1s ease-in, background .5s linear

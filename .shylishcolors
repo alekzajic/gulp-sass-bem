@@ -1,0 +1,9 @@
+{
+		"comment-about": "for-use-with-jshint-stylish-ex-plugin",
+		"comment-colors-options": "black, red, green, yellow, blue, magenta, cyan, white, and gray",
+		"meta": "gray",
+		"reason": "yellow",
+		"verbose": "gray",
+		"error": "red",
+		"noproblem": "green"
+}

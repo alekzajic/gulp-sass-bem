@@ -1,0 +1,208 @@
+#############################
+## Sass Lint Configuration ##
+#############################
+
+options:
+  formatter: stylish
+files:
+  include: '**/*.s+(a|c)ss'
+  ignore: 'src/sass/vendors/**/*.s+(a|c)ss'
+rules:
+  # Extends
+  extends-before-mixins: 1 # in ruleset
+  extends-before-declarations: 1 # in ruleset
+  placeholder-in-extend: 0 # extend should only include placeholder selectors
+
+  # Mixins
+  mixins-before-declarations: # in ruleset
+    - 1
+    -
+      exclude: [mq, clearfix, hocus, placeholder-color, placeholder, rooter]
+
+  # Line Spacing
+  one-declaration-per-line: 1
+  empty-line-between-blocks:
+    - 1
+    -
+      include: true
+      allow-single-line-rulesets: true
+  single-line-per-selector: 0
+
+  # Disallows
+  no-attribute-selectors: 0
+  no-color-hex: 0
+  no-color-keywords: 0
+  no-color-literals:
+    - 1
+    -
+      allow-variable-identifiers: true # true
+      allow-map-identifiers: true # true
+      allow-rgba: true # false
+  no-combinators: 0
+  no-css-comments: 1 # sass and bang ( /*!   **/) comments are allowed
+  no-debug: 0
+  no-disallowed-properties: 0
+  no-duplicate-properties: 1
+  no-empty-rulesets: 1
+  no-extends: 0
+  no-ids: 1
+  no-important: 1
+  no-invalid-hex: 1
+  no-mergeable-selectors:
+    - 1
+    -
+      - whitelist: []
+  no-misspelled-properties: 1
+  no-qualifying-elements:
+    - 1
+    -
+      - allow-element-with-attribute: true
+      - allow-element-with-class: true
+      - allow-element-with-id: false
+  no-trailing-zero: 1
+  no-transition-all: 0
+  no-universal-selectors: 0
+  no-url-domains: 0
+  no-url-protocols: 1
+  no-vendor-prefixes:
+    - 1
+    -
+      - additional-identifiers: []
+      - excluded-identifiers: []
+      - ignore-non-standard: false
+  no-warn: 0
+  property-units:
+    - 1
+    -
+      - global: []
+      - per-property: {}
+      # - per-property: { width: ['rem', 'px', etc], height: ['rem', 'px', etc], }
+
+  # Nesting
+  declarations-before-nesting: 1
+  force-attribute-nesting: 0
+  force-element-nesting: 0
+  force-pseudo-nesting: 0
+
+  # Name Formats
+  class-name-format:
+    - 1
+    -
+      allow-leading-underscore: true # true
+      convention: hyphenatedlowercase # hyphenatedlowercase
+      convention-explanation: 'Class must be lowercase and can be hyphenated.'
+      ignore: .btn_, .z_
+  function-name-format: 1
+  id-name-format: 1
+  mixin-name-format: 1
+  placeholder-name-format: 1
+  variable-name-format:
+    - 1
+    -
+      allow-leading-underscore: true
+      convention: ^[_a-z-1-9-]+$
+      convention-explanation: 'Variable should be all lowercase and will accept hyphens and underscores.'
+
+  # Style Guide
+  attribute-quotes: 1
+  bem-depth: 0
+  border-zero: 1
+  brace-style: 1
+  clean-import-paths: 1
+  empty-args: 0
+  hex-length:
+    - 1
+    -
+      style: short # long
+  hex-notation:
+    - 1
+    -
+      style: lowercase # uppercase
+  indentation:
+    - 0
+    -
+      size: tab
+  leading-zero: 1
+  nesting-depth:
+    - 2
+    -
+      max-depth: 3
+  property-sort-order:
+    - 0
+    -
+      order: 'alphabetical' # array of properties
+  quotes:
+    - 1
+    -
+      style: single # double
+  shorthand-values:
+    - 0
+    -
+      allowed-shorthands: [1, 2, 3]
+  url-quotes: 1
+  variable-for-property:
+  - 1
+  -
+    properties:
+      - 'color'
+  zero-unit:
+    - 0
+    -
+      include: true # false
+
+  # Inner Spacing
+  space-after-comma: 0
+  space-before-colon: 0
+  space-after-colon: 0
+  space-before-brace: 0
+  space-before-bang: 0
+  space-after-bang: 0
+  space-between-parens: 0
+  space-around-operator: 0
+
+  # Final Items
+  trailing-semicolon: 1
+  final-newline: 1
+
+
+# Info ##########################################################
+
+# https://github.com/sasstools/sass-lint/tree/master/docs/rules
+# https://github.com/sasstools/sass-lint
+
+# Disable a rule for the entire file
+# // sass-lint:disable name-of-rule
+
+# Disable more than 1 rule
+# // sass-lint:disable name-of-rule, name-of-other-rule
+
+# Disable a rule for a single line
+# // sass-lint:disable-line name-of-rule
+
+# Disable all lints within a block (and all contained blocks)
+# // sass-lint:disable-block name-of-rule
+
+# Disable and enable again
+# // sass-lint:disable name-of-rule
+# // sass-lint:enable name-of-rule
+
+# Disable/Enable All Linters
+# // sass-lint:disable-all
+# // sass-lint:enable-all
+
+
+
+# // sass-lint:disable-block no-vendor-prefixes
+
+
+
+# utilities
+# 03-base
+# 04-layout
+# 05-components
+# 06-pages-templates
+
+# Luscious--
+# deprecated
+# main-imports
+# breakpoint-sass ignored

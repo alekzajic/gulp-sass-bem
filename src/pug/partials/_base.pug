@@ -1,0 +1,75 @@
+//- base partial- Contains the code that goes on pretty much every page
+
+doctype html
+
+html
+
+	block head
+
+		head
+			meta(charset='utf-8')
+			meta(name='viewport', content='width=device-width, initial-scale=1')
+
+			//- Style Sheet
+			block stylesheets
+
+				if rootfile
+					- var stylesheet = 'src/css/main.css';
+				else
+					- var stylesheet = '../css/main.css';
+
+
+				//- Concat Tag for CSS -----
+				// build:css ./dist/css/main.css
+
+				//- link(type="text/css" rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css')
+				link(type="text/css" rel='stylesheet', href=stylesheet )
+
+				// endbuild
+				//- End concat tag -----
+
+			block title
+				title Default Page Title
+
+	//- end: head
+
+
+	block vars
+	body(class=`${bodyClass}`)
+
+		//- Fixed position background image if needed
+		//- .bg-image
+
+		block header
+			include _header.pug
+
+
+		main#maincontent(role='main')
+			//- Id is used for 'skip-nav' accesibility
+
+			block content
+			//- main content here
+
+			//- end: main
+
+		block footer
+			include _footer.pug
+
+	//- end: body
+
+
+	block bottom
+
+		//- Concat Tag
+		// build:js ./dist/js/main.js
+
+		//- script(type='text/javascript' src='./src/js/responsive-nav.js)
+
+		//- script(type='text/javascript' src='./src/js/vendor/jquery-1.12.0.min.js')
+
+		//- script(type='text/javascript' src='./src/js/vendor/modernizr-2.8.3.min.js')
+
+		// endbuild
+		//- End concat tag
+
+	//- end: bottom

@@ -1,0 +1,25 @@
+//- home page
+
+
+extends partials/_base.pug
+
+prepend head
+	//- For printing correct links
+	- var rootfile = true
+	//- dynamic body class as a variable.
+	- var bodyClass = 'home'
+
+
+block title
+	title Page Title
+
+
+block content
+
+	include panels/_showcase.pug
+
+	include panels/_callout.pug
+
+	include panels/_features.pug
+
+	include panels/_reviews.pug

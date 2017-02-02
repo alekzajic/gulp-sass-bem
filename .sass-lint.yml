@@ -39,7 +39,7 @@ rules:
       allow-map-identifiers: true # true
       allow-rgba: true # false
   no-combinators: 0
-  no-css-comments: 1 # sass and bang ( /*!   **/) comments are allowed
+  no-css-comments: 0 # sass and bang ( /*!   **/) comments are allowed
   no-debug: 0
   no-disallowed-properties: 0
   no-duplicate-properties: 1
@@ -54,7 +54,7 @@ rules:
       - whitelist: []
   no-misspelled-properties: 1
   no-qualifying-elements:
-    - 1
+    - 0
     -
       - allow-element-with-attribute: true
       - allow-element-with-class: true
@@ -107,7 +107,7 @@ rules:
   attribute-quotes: 1
   bem-depth: 0
   border-zero: 1
-  brace-style: 1
+  brace-style: 0
   clean-import-paths: 1
   empty-args: 0
   hex-length:

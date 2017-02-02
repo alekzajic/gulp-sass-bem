@@ -1,0 +1,113 @@
+/* ==|====================
+ * Base / Typography
+ * ======================= */
+
+/* Links |================ */
+
+a {
+  color: $link__color;
+  text-decoration: none;
+  transition: $base__transition;
+
+  &:hover,
+  &:focus {
+    color: $link__color--hover;
+    text-decoration: $link__decoration--hover;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+/* Code |================= */
+
+code {
+  font-family: $text__family--monospace;
+}
+
+/* Headings |============= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $headings__color;
+  font-family: $headings__family;
+  font-weight: $headins__weight;
+  line-height: $text__line-height--base;
+
+  small,
+  .small {
+    font-weight: $text__weight--base;
+    line-height: $text__line-height--base;
+  }
+}
+
+h1,
+h2,
+h3 {
+
+  small,
+  .small {
+    font-size: 65%;
+  }
+}
+
+h4,
+h5,
+h6 {
+
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
+
+h1 {
+  font-size: $headings__size--h1;
+  margin: .67em 0;
+}
+
+h2 {
+  font-size: $headings__size--h2;
+  margin: .83em 0;
+}
+
+h3 {
+  font-size: $headings__size--h3;
+   margin: 1em 0;
+}
+
+h4 {
+  font-size: $headings__size--h4;
+   margin: 1.33em 0;
+}
+
+h5 {
+  font-size: $headings__size--h5;
+  margin: 1.67em 0;
+}
+
+h6 {
+  font-size: $headings__size--h6;
+  margin: 2.33em 0;
+}
+
+/* Paragraphs |============= */
+
+p {
+  font-size: $text__size--base;
+  line-height: $text__line-height--base;
+  margin: 0;
+}
+
+/* Other |================== */
+
+mark {
+  background-color: $color__primary;
+  padding: .2em;
+}
+

@@ -1,13 +1,130 @@
-$browser-context: $text__size--base;
+/* ==|====================
+ * Abstracts / Mixins
+ * ======================= */
 
-@function em($pixels, $context: $browser-context) {
-  @if (unitless($pixels)) {
-    $pixels: $pixels * 1px;
+/**
+ * Clearfix - Usage: @include clearfix;
+ */
+@mixin clearfix() {
+
+  & {
+    zoom: 1;
   }
 
-  @if (unitless($context)) {
-    $context: $context * 1px;
+  &::after,
+  &::before {
+    content: '';
+    display: table;
   }
 
-  @return $pixels / $context * 1em;
+  &::after { clear: both; }
 }
+
+/**
+ * Triangles / arrows
+ * @param {String} $direction [top, bottom, left, right]
+ * @param {String} $color [#cccccc]
+ * @param {String} $size [10]
+ * example: @include arrow("left", #cccccc, 10);
+ */
+ // sass-lint:disable-block no-duplicate-properties
+@mixin arrow($direction, $color, $size) {
+  $px-size: $size + px;
+  $rem-size: ($size / 10) + rem;
+  height: 0;
+  width: 0;
+  @if $direction == 'left' {
+    border-top: $px-size solid transparent;
+    border-right: $px-size solid $color;
+    border-bottom: $px-size solid transparent;
+    border-top: $rem-size solid transparent;
+    border-right: $rem-size solid $color;
+    border-bottom: $rem-size solid transparent;
+  } @else if $direction == 'right' {
+    border-top: $px-size solid transparent;
+    border-bottom: $px-size solid transparent;
+    border-left: $px-size solid $color;
+    border-top: $rem-size solid transparent;
+    border-bottom: $rem-size solid transparent;
+    border-left: $rem-size solid $color;
+  }
+  @else if $direction == 'up' {
+    border-left: $px-size solid transparent;
+    border-right: $px-size solid transparent;
+    border-bottom: $px-size solid $color;
+    border-left: $rem-size solid transparent;
+    border-right: $rem-size solid transparent;
+    border-bottom: $rem-size solid $color;
+  }
+  @else if $direction == 'down' {
+    border-left: $px-size solid transparent;
+    border-right: $px-size solid transparent;
+    border-top: $px-size solid $color;
+    border-left: $rem-size solid transparent;
+    border-right: $rem-size solid transparent;
+    border-top: $rem-size solid $color;
+  }
+}
+
+/// Vertically centers block elements with known height.
+/// @access public
+/// @param {Length} $height - Element's height
+/// @example scss - Usage
+///   .foo {
+///     @include center-h(42px);
+///   }
+/// @example css - Result
+///   .foo {
+///     position: absolute;
+///     top: 50%;
+///     height: 42px;
+///     margin-top: -21px;
+///   }
+@mixin center-h($height) {
+    position: absolute;
+    top: 50%;
+    height: $height;
+    margin-top: -($height / 2);
+}
+
+/// Vertically centers block elements with unknown height.
+/// @access public
+/// @example scss - Usage
+///   .foo {
+///     @include center-h--unk;
+///   }
+/// @example css - Result
+///   .foo {
+///     position: relative;
+///     top: 50%;
+///     -webkit-transform: translateY(-50%);
+///     -ms-transform: translateY(-50%);
+///     transform: translateY(-50%);
+///   }
+// @mixin center-h--unk {
+//     position: relative;
+//     top: 50%;
+//     @include prefix(transform, translateY(-50%), 'webkit' 'ms');
+// }
+
+/// Given the location of a webfont, will generate a font-face declaration with multiple file formats.
+/// @access public
+/// @param {String} $font-name - Font family name
+/// @param {String} $file-name - File name (no extension)
+/// @param {String | Number} $weight [normal] - Font weight
+/// @param {String} $style [normal] - Font style
+/// @example scss - Usage
+///   @include font-face('gotham', '/fonts/gotham');
+// @mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+//   // sass-lint:disable-block no-duplicate-properties
+//   @font-face {
+//     font-family: quote($font-name);
+//     src: url($file-name + '.eot');
+//     src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+//          url($file-name + '.woff') format('woff'),
+//          url($file-name + '.ttf')  format('truetype'),
+//          url($file-name + '.svg##{$font-name}')  format('svg');
+//     font-weight: $weight;
+//     font-style: $style;
+//   }
+// }

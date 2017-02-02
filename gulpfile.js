@@ -14,7 +14,7 @@
 var base = {
 	dist:      './dist/',                // Production folder
 	src:       './src/',                 // Dev folder
-	sass:       './src/sass/',           // Sass folder
+	sass:      './src/sass/',            // Sass folder
 	js:        './src/js/',              // JS folder
 };
 
@@ -24,17 +24,20 @@ global.gulpy = {
 
 	// Global Paths
 	path: {
-		root:  './',                 // Project root folder
-		serv:  './',                 // Static sites for browser-sync
-		// serv:  'yourlocal.dev',   // For dynamic server
-		tasks: './gulpy/',           // Gulp tasks
-		dist:  base.dist,            // Distribution output folder
-    html:  base.dist + 'html/',    // HTML folder
-		dev:   base.src,             // Dev directory
-		sass:  base.sass,            // Contains all the sass
-		js:    base.js,              // Raw js for dev
-		css:   base.src + 'css/',    // Compiled from Sass files
-		pug:   base.src + 'pug/',    // Precompiled for dev
+		root:  './',                      // Project root folder
+		serv:  './dist/',                 // Static sites for browser-sync
+		// serv:  'yourlocal.dev',        // For dynamic server
+		tasks: './gulpy/',                // Gulp tasks
+		dist:  base.dist,                 // Distribution output folder
+    html:  base.dist + 'html/',       // HTML folder
+		dev:   base.src,                  // Dev directory
+		sass:  base.sass,                 // Contains all the sass
+		js:    base.js,                   // Raw js for dev
+		css:   base.dist + 'css/',        // Compiled from Sass files
+    dist_js: base.dist + 'js/',       // Compiled JS
+		pug:   base.src + 'pug/',         // Precompiled for dev
+    sass_maps: './maps/',
+    js_maps: './maps/',
 	},
 	// -------------------------------------
 
@@ -42,9 +45,14 @@ global.gulpy = {
 	sassOpts: {
 		errLogToConsole: true,
 		outputStyle: 'expanded',
-		sourceComments: 'false',
+		sourceComments: true,
 		indentType: 'tab',
-		indentWidth: '1'
+		indentWidth: '1',
+        includePaths: [
+            './node_modules/susy/sass/susy.scss',
+            //'./node_modules/avalanche-css/avalanche.scss',
+            //'./node_modules/reflex-grid/scss/reflex.scss'
+        ]
 		// precision: '10'
 	},
 	// -------------------------------------
@@ -87,6 +95,7 @@ global.gulpy = {
 // ~Imports
 var gulp          = require( 'gulp' ),
 		runSequence   = require( 'run-sequence' ),
+    //uglify        = require('gulp-uglify'),
 		del           = require( 'del' ),
 		requireDir    = require( 'require-dir' )( './gulpy' ), // Modularize Gulp
 		browserSync   = require( 'browser-sync' ),
@@ -145,5 +154,5 @@ gulp.task( 'boom', plugins.shell.task([
 
 // ~Gulp Temp
 gulp.task( 'default', function(done) {
-	runSequence( 'server', 'watch', done );
+	runSequence( 'server', 'watch', 'js', done );
 });

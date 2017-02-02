@@ -1,0 +1,42 @@
+/* ==|====================
+ * Abstracts / Functions
+ * ======================= */
+
+$browser-context: $text__size--base;
+
+@function px2em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+
+/// Convert a px value to em
+/// @param {px} $val - The desired px size
+/// @param {px} $ctx [$base-font-size] - The base px size
+/// @return {em} The px value in em
+@function em($val, $ctx: $browser-context) {
+
+  //make sure the divider is not 0
+  @if $ctx == 0 {
+    @error 'sass-ems: Context cannot be `0`.';
+  }
+
+  //return a unit less 0 (best practice)
+  @if $val == 0 {
+    @return 0
+  }
+
+  //make sure units are in px
+  @if (unit($val) != 'px' or unit($val) != 'px') {
+    @error 'sass-ems: Units must be `px`.';
+  }
+
+  @return ($val / $ctx) * 1em;
+}

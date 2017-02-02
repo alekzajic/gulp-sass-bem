@@ -13,16 +13,24 @@ var browserSync   = require( 'browser-sync' );
 // Tasks
 module.exports = function( gulp, plugins ) {
 
-	// JS Linter
-	gulp.task( 'lint-js', function() {
+	// JS Compile
+	gulp.task( 'js', function() {
 		return gulp.src( [
 			// './gulpfile.js',
 			// './gulpy/**',
-			'./src/js/**',
+			'./src/js/**/*.js',
 			'!./**/*_~*',
+      '!' + gulpy.path.js + 'vendor/**/*_~*',
 		] )
-			.pipe( plugins.jshint() )
-			.pipe( plugins.jshint.reporter( 'jshint-stylish-ex' ));
+    .pipe( plugins.plumber())
+    .pipe( plugins.changed(gulpy.path.dist_js))
+    .pipe( plugins.jshint() )
+    .pipe( plugins.jshint.reporter( 'jshint-stylish-ex' ))
+    .pipe( plugins.uglify())
+    .pipe( plugins.concat('custom.min.js'))
+    .pipe( plugins.sourcemaps.init())
+    .pipe( plugins.sourcemaps.write(gulpy.path.js_maps))
+    .pipe( gulp.dest(gulpy.path.dist_js));
 	});
 
 	// FixmyJS
@@ -30,7 +38,7 @@ module.exports = function( gulp, plugins ) {
 		return gulp.src( [
 			// '*.js',
 			// '!node_modules/**',
-			'./src/js/test.js'
+			'./src/js/**/*.js'
 		] )
 			.pipe( plugins.fixmyjs() )
 	});

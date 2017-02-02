@@ -1,6 +1,29 @@
-/// ==|====================
-/// Base / Base
-/// =======================
+/* ==|====================
+ * Base / Base
+ * ======================= */
+
+// Susy Settings
+
+// Susy Settings
+$susy: (
+  container: $container__max-width,
+  container-position: center,
+  columns: 12,
+  gutters: 1 / 4,
+  flow: ltr,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  last-flow: to,
+  global-box-sizing: border-box,
+  debug: (
+    image: show,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top left
+  )
+);
+
 
 html {
   // sass-lint:disable-block no-vendor-prefixes
@@ -38,4 +61,8 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
+}
+
+.container {
+  @include container;
 }

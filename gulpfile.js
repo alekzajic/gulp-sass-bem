@@ -29,6 +29,7 @@ global.gulpy = {
 		// serv:  'yourlocal.dev',   // For dynamic server
 		tasks: './gulpy/',           // Gulp tasks
 		dist:  base.dist,            // Distribution output folder
+    html:  base.dist + 'html/',    // HTML folder
 		dev:   base.src,             // Dev directory
 		sass:  base.sass,            // Contains all the sass
 		js:    base.js,              // Raw js for dev
@@ -144,5 +145,5 @@ gulp.task( 'boom', plugins.shell.task([
 
 // ~Gulp Temp
 gulp.task( 'default', function(done) {
-	runSequence( 'server', 'watch-sass', done );
+	runSequence( 'server', 'watch', done );
 });

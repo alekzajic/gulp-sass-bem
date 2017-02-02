@@ -13,10 +13,10 @@ module.exports = function( gulp, plugins ) {
 	gulp.task( 'watch', function() {
 		// gulp.watch( gulpy.path.sass + '**/*.+(scss|sass)', ['sass']);
 		gulp.watch( gulpy.path.sass + '**/*.+(scss|sass)', [ 'sass', 'sass-lint' ]);
-		gulp.watch( gulpy.path.pug + '**/*.pug', [ 'pug' ]);
+		//gulp.watch( gulpy.path.pug + '**/*.pug', [ 'pug' ]);
 		gulp.watch( gulpy.path.js + '**/*.js', [ 'lint-js' ]).on('change', browserSync.reload);
 		gulp.watch( gulpy.path.dev + '**/*.css' ).on('change', browserSync.reload);
-		gulp.watch( gulpy.path.dev + '**/*.html' ).on('change', browserSync.reload);
+		gulp.watch( gulpy.path.html + '**/*.html' ).on('change', browserSync.reload);
 	});
 
 	// Just worry about the sass

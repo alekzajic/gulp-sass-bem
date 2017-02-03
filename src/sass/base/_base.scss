@@ -14,10 +14,10 @@ $susy: (
   math: fluid,
   output: float,
   gutter-position: after,
-  last-flow: to,
+  //last-flow: to,
   global-box-sizing: border-box,
   debug: (
-    image: show,
+    image: hide,
     color: rgba(#66f, .25),
     output: background,
     toggle: top left
